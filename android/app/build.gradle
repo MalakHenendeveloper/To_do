@@ -1,0 +1,39 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace = "com.example.to_do"
+    compileSdk = 34
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17 // أو VERSION_21 إذا كنت تستخدم JDK 21
+        targetCompatibility JavaVersion.VERSION_17 // أو VERSION_21 إذا كنت تستخدم JDK 21
+    }
+
+    kotlinOptions {
+        jvmTarget = "17" // أو 21 إذا كنت تستخدم JDK 21
+    }
+
+    defaultConfig {
+        applicationId = "com.example.to_do"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
